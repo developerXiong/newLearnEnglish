@@ -1,0 +1,661 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6ACDB06B1CBF8F700057F2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB06A1CBF8F700057F2F2 /* main.m */; };
+		6ACDB0771CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0751CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld */; };
+		6ACDB0791CBF8F700057F2F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB0781CBF8F700057F2F2 /* Assets.xcassets */; };
+		6ACDB07C1CBF8F700057F2F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB07A1CBF8F700057F2F2 /* LaunchScreen.storyboard */; };
+		6ACDB0871CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0861CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishTests.m */; };
+		6ACDB0921CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0911CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishUITests.m */; };
+		6ACDB0AA1CBF901D0057F2F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0A41CBF901D0057F2F2 /* AppDelegate.m */; };
+		6ACDB0AF1CBF90770057F2F2 /* CYMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0AD1CBF90770057F2F2 /* CYMainViewController.m */; };
+		6ACDB0B01CBF90770057F2F2 /* CYMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB0AE1CBF90770057F2F2 /* CYMainViewController.xib */; };
+		6ACDB0B41CBF92080057F2F2 /* CYMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0B21CBF92080057F2F2 /* CYMainCell.m */; };
+		6ACDB0B51CBF92080057F2F2 /* CYMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB0B31CBF92080057F2F2 /* CYMainCell.xib */; };
+		6ACDB0CD1CBF99220057F2F2 /* CYRememberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0CB1CBF99220057F2F2 /* CYRememberViewController.m */; };
+		6ACDB0CE1CBF99220057F2F2 /* CYRememberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB0CC1CBF99220057F2F2 /* CYRememberViewController.xib */; };
+		6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */; };
+		6ACDB0D61CBFA1E20057F2F2 /* CYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D51CBFA1E20057F2F2 /* CYData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6ACDB0831CBF8F700057F2F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ACDB05E1CBF8F700057F2F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ACDB0651CBF8F700057F2F2;
+			remoteInfo = "Controller Model CYLearnEnglish";
+		};
+		6ACDB08E1CBF8F700057F2F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ACDB05E1CBF8F700057F2F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ACDB0651CBF8F700057F2F2;
+			remoteInfo = "Controller Model CYLearnEnglish";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6ACDB0661CBF8F700057F2F2 /* Controller Model CYLearnEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Controller Model CYLearnEnglish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACDB06A1CBF8F700057F2F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6ACDB0761CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Controller_Model_CYLearnEnglish.xcdatamodel; sourceTree = "<group>"; };
+		6ACDB0781CBF8F700057F2F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6ACDB07B1CBF8F700057F2F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6ACDB07D1CBF8F700057F2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ACDB0821CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Controller Model CYLearnEnglishTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACDB0861CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Controller_Model_CYLearnEnglishTests.m; sourceTree = "<group>"; };
+		6ACDB0881CBF8F700057F2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ACDB08D1CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Controller Model CYLearnEnglishUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ACDB0911CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Controller_Model_CYLearnEnglishUITests.m; sourceTree = "<group>"; };
+		6ACDB0931CBF8F700057F2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ACDB0A31CBF901D0057F2F2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6ACDB0A41CBF901D0057F2F2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6ACDB0AC1CBF90770057F2F2 /* CYMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMainViewController.h; sourceTree = "<group>"; };
+		6ACDB0AD1CBF90770057F2F2 /* CYMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMainViewController.m; sourceTree = "<group>"; };
+		6ACDB0AE1CBF90770057F2F2 /* CYMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMainViewController.xib; sourceTree = "<group>"; };
+		6ACDB0B11CBF92080057F2F2 /* CYMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMainCell.h; sourceTree = "<group>"; };
+		6ACDB0B21CBF92080057F2F2 /* CYMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMainCell.m; sourceTree = "<group>"; };
+		6ACDB0B31CBF92080057F2F2 /* CYMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMainCell.xib; sourceTree = "<group>"; };
+		6ACDB0CA1CBF99220057F2F2 /* CYRememberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRememberViewController.h; sourceTree = "<group>"; };
+		6ACDB0CB1CBF99220057F2F2 /* CYRememberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRememberViewController.m; sourceTree = "<group>"; };
+		6ACDB0CC1CBF99220057F2F2 /* CYRememberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYRememberViewController.xib; sourceTree = "<group>"; };
+		6ACDB0CF1CBF995E0057F2F2 /* Head.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Head.pch; sourceTree = "<group>"; };
+		6ACDB0D11CBFA0E50057F2F2 /* CYDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDataTool.h; sourceTree = "<group>"; };
+		6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDataTool.m; sourceTree = "<group>"; };
+		6ACDB0D41CBFA1E20057F2F2 /* CYData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYData.h; sourceTree = "<group>"; };
+		6ACDB0D51CBFA1E20057F2F2 /* CYData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYData.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6ACDB0631CBF8F700057F2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB07F1CBF8F700057F2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB08A1CBF8F700057F2F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6ACDB05D1CBF8F700057F2F2 = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0681CBF8F700057F2F2 /* Controller Model CYLearnEnglish */,
+				6ACDB0851CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests */,
+				6ACDB0901CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests */,
+				6ACDB0671CBF8F700057F2F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6ACDB0671CBF8F700057F2F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0661CBF8F700057F2F2 /* Controller Model CYLearnEnglish.app */,
+				6ACDB0821CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests.xctest */,
+				6ACDB08D1CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6ACDB0681CBF8F700057F2F2 /* Controller Model CYLearnEnglish */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB09F1CBF901D0057F2F2 /* Classes */,
+				6ACDB0781CBF8F700057F2F2 /* Assets.xcassets */,
+				6ACDB07A1CBF8F700057F2F2 /* LaunchScreen.storyboard */,
+				6ACDB07D1CBF8F700057F2F2 /* Info.plist */,
+				6ACDB0751CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld */,
+				6ACDB0691CBF8F700057F2F2 /* Supporting Files */,
+			);
+			path = "Controller Model CYLearnEnglish";
+			sourceTree = "<group>";
+		};
+		6ACDB0691CBF8F700057F2F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB06A1CBF8F700057F2F2 /* main.m */,
+				6ACDB0CF1CBF995E0057F2F2 /* Head.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6ACDB0851CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0861CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishTests.m */,
+				6ACDB0881CBF8F700057F2F2 /* Info.plist */,
+			);
+			path = "Controller Model CYLearnEnglishTests";
+			sourceTree = "<group>";
+		};
+		6ACDB0901CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0911CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishUITests.m */,
+				6ACDB0931CBF8F700057F2F2 /* Info.plist */,
+			);
+			path = "Controller Model CYLearnEnglishUITests";
+			sourceTree = "<group>";
+		};
+		6ACDB09F1CBF901D0057F2F2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0A01CBF901D0057F2F2 /* Lib */,
+				6ACDB0D01CBFA0C80057F2F2 /* Tools */,
+				6ACDB0A11CBF901D0057F2F2 /* Main */,
+				6ACDB0B61CBF98CF0057F2F2 /* Remember(记单词) */,
+				6ACDB0A91CBF901D0057F2F2 /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6ACDB0A01CBF901D0057F2F2 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		6ACDB0A11CBF901D0057F2F2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0A21CBF901D0057F2F2 /* Controller */,
+				6ACDB0A71CBF901D0057F2F2 /* Model */,
+				6ACDB0A81CBF901D0057F2F2 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6ACDB0A21CBF901D0057F2F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0A31CBF901D0057F2F2 /* AppDelegate.h */,
+				6ACDB0A41CBF901D0057F2F2 /* AppDelegate.m */,
+				6ACDB0AC1CBF90770057F2F2 /* CYMainViewController.h */,
+				6ACDB0AD1CBF90770057F2F2 /* CYMainViewController.m */,
+				6ACDB0AE1CBF90770057F2F2 /* CYMainViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6ACDB0A71CBF901D0057F2F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6ACDB0A81CBF901D0057F2F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0B11CBF92080057F2F2 /* CYMainCell.h */,
+				6ACDB0B21CBF92080057F2F2 /* CYMainCell.m */,
+				6ACDB0B31CBF92080057F2F2 /* CYMainCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6ACDB0A91CBF901D0057F2F2 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6ACDB0B61CBF98CF0057F2F2 /* Remember(记单词) */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0C71CBF990C0057F2F2 /* Controller */,
+				6ACDB0C81CBF990C0057F2F2 /* Model */,
+				6ACDB0C91CBF990C0057F2F2 /* View */,
+			);
+			path = "Remember(记单词)";
+			sourceTree = "<group>";
+		};
+		6ACDB0C71CBF990C0057F2F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0CA1CBF99220057F2F2 /* CYRememberViewController.h */,
+				6ACDB0CB1CBF99220057F2F2 /* CYRememberViewController.m */,
+				6ACDB0CC1CBF99220057F2F2 /* CYRememberViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6ACDB0C81CBF990C0057F2F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0D41CBFA1E20057F2F2 /* CYData.h */,
+				6ACDB0D51CBFA1E20057F2F2 /* CYData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6ACDB0C91CBF990C0057F2F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6ACDB0D01CBFA0C80057F2F2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6ACDB0D11CBFA0E50057F2F2 /* CYDataTool.h */,
+				6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6ACDB0651CBF8F700057F2F2 /* Controller Model CYLearnEnglish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ACDB0961CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglish" */;
+			buildPhases = (
+				6ACDB0621CBF8F700057F2F2 /* Sources */,
+				6ACDB0631CBF8F700057F2F2 /* Frameworks */,
+				6ACDB0641CBF8F700057F2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Controller Model CYLearnEnglish";
+			productName = "Controller Model CYLearnEnglish";
+			productReference = 6ACDB0661CBF8F700057F2F2 /* Controller Model CYLearnEnglish.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6ACDB0811CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ACDB0991CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishTests" */;
+			buildPhases = (
+				6ACDB07E1CBF8F700057F2F2 /* Sources */,
+				6ACDB07F1CBF8F700057F2F2 /* Frameworks */,
+				6ACDB0801CBF8F700057F2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6ACDB0841CBF8F700057F2F2 /* PBXTargetDependency */,
+			);
+			name = "Controller Model CYLearnEnglishTests";
+			productName = "Controller Model CYLearnEnglishTests";
+			productReference = 6ACDB0821CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6ACDB08C1CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ACDB09C1CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishUITests" */;
+			buildPhases = (
+				6ACDB0891CBF8F700057F2F2 /* Sources */,
+				6ACDB08A1CBF8F700057F2F2 /* Frameworks */,
+				6ACDB08B1CBF8F700057F2F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6ACDB08F1CBF8F700057F2F2 /* PBXTargetDependency */,
+			);
+			name = "Controller Model CYLearnEnglishUITests";
+			productName = "Controller Model CYLearnEnglishUITests";
+			productReference = 6ACDB08D1CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6ACDB05E1CBF8F700057F2F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CY;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = jeader;
+				TargetAttributes = {
+					6ACDB0651CBF8F700057F2F2 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					6ACDB0811CBF8F700057F2F2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 6ACDB0651CBF8F700057F2F2;
+					};
+					6ACDB08C1CBF8F700057F2F2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 6ACDB0651CBF8F700057F2F2;
+					};
+				};
+			};
+			buildConfigurationList = 6ACDB0611CBF8F700057F2F2 /* Build configuration list for PBXProject "Controller Model CYLearnEnglish" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6ACDB05D1CBF8F700057F2F2;
+			productRefGroup = 6ACDB0671CBF8F700057F2F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6ACDB0651CBF8F700057F2F2 /* Controller Model CYLearnEnglish */,
+				6ACDB0811CBF8F700057F2F2 /* Controller Model CYLearnEnglishTests */,
+				6ACDB08C1CBF8F700057F2F2 /* Controller Model CYLearnEnglishUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6ACDB0641CBF8F700057F2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ACDB0B51CBF92080057F2F2 /* CYMainCell.xib in Resources */,
+				6ACDB0B01CBF90770057F2F2 /* CYMainViewController.xib in Resources */,
+				6ACDB0CE1CBF99220057F2F2 /* CYRememberViewController.xib in Resources */,
+				6ACDB07C1CBF8F700057F2F2 /* LaunchScreen.storyboard in Resources */,
+				6ACDB0791CBF8F700057F2F2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB0801CBF8F700057F2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB08B1CBF8F700057F2F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6ACDB0621CBF8F700057F2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ACDB0B41CBF92080057F2F2 /* CYMainCell.m in Sources */,
+				6ACDB0D61CBFA1E20057F2F2 /* CYData.m in Sources */,
+				6ACDB06B1CBF8F700057F2F2 /* main.m in Sources */,
+				6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */,
+				6ACDB0AF1CBF90770057F2F2 /* CYMainViewController.m in Sources */,
+				6ACDB0771CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld in Sources */,
+				6ACDB0AA1CBF901D0057F2F2 /* AppDelegate.m in Sources */,
+				6ACDB0CD1CBF99220057F2F2 /* CYRememberViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB07E1CBF8F700057F2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ACDB0871CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ACDB0891CBF8F700057F2F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ACDB0921CBF8F700057F2F2 /* Controller_Model_CYLearnEnglishUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6ACDB0841CBF8F700057F2F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ACDB0651CBF8F700057F2F2 /* Controller Model CYLearnEnglish */;
+			targetProxy = 6ACDB0831CBF8F700057F2F2 /* PBXContainerItemProxy */;
+		};
+		6ACDB08F1CBF8F700057F2F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ACDB0651CBF8F700057F2F2 /* Controller Model CYLearnEnglish */;
+			targetProxy = 6ACDB08E1CBF8F700057F2F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6ACDB07A1CBF8F700057F2F2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6ACDB07B1CBF8F700057F2F2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6ACDB0941CBF8F700057F2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6ACDB0951CBF8F700057F2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6ACDB0971CBF8F700057F2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Controller Model CYLearnEnglish/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglish";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6ACDB0981CBF8F700057F2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Controller Model CYLearnEnglish/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglish";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6ACDB09A1CBF8F700057F2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Controller Model CYLearnEnglishTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglishTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Controller Model CYLearnEnglish.app/Controller Model CYLearnEnglish";
+			};
+			name = Debug;
+		};
+		6ACDB09B1CBF8F700057F2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Controller Model CYLearnEnglishTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglishTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Controller Model CYLearnEnglish.app/Controller Model CYLearnEnglish";
+			};
+			name = Release;
+		};
+		6ACDB09D1CBF8F700057F2F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Controller Model CYLearnEnglishUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglishUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Controller Model CYLearnEnglish";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		6ACDB09E1CBF8F700057F2F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Controller Model CYLearnEnglishUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeader.Controller-Model-CYLearnEnglishUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Controller Model CYLearnEnglish";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6ACDB0611CBF8F700057F2F2 /* Build configuration list for PBXProject "Controller Model CYLearnEnglish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ACDB0941CBF8F700057F2F2 /* Debug */,
+				6ACDB0951CBF8F700057F2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6ACDB0961CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ACDB0971CBF8F700057F2F2 /* Debug */,
+				6ACDB0981CBF8F700057F2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6ACDB0991CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ACDB09A1CBF8F700057F2F2 /* Debug */,
+				6ACDB09B1CBF8F700057F2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6ACDB09C1CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ACDB09D1CBF8F700057F2F2 /* Debug */,
+				6ACDB09E1CBF8F700057F2F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6ACDB0751CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6ACDB0761CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodel */,
+			);
+			currentVersion = 6ACDB0761CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodel */;
+			path = Controller_Model_CYLearnEnglish.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6ACDB05E1CBF8F700057F2F2 /* Project object */;
+}
