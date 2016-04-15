@@ -25,8 +25,9 @@
 {
     if (_dataArr == nil) {
         _dataArr = [NSMutableArray array];
-        
-        NSMutableArray *oldArr = [CYDataTool dataArr];
+
+        NSMutableArray *oldArr = [CYDataTool oldDataArr];
+
         if (oldArr.count) {
             for (NSDictionary *dict in oldArr) {
                 [_dataArr addObject:dict];
@@ -61,8 +62,9 @@
     if ([self.wordName.text length]) dataDict[@"word"] = self.wordName.text;
     if ([self.descriptions.text length]) dataDict[@"describe"] = self.descriptions.text;
     
-    //将输入的数据保存到最前面
-    [self.dataArr insertObject:dataDict atIndex:0];
+    //将输入的数据保存
+    [self.dataArr addObject:dataDict];
+    
     //保存数据到plist
     [CYDataTool saveDataWithArr:self.dataArr];
     
@@ -81,12 +83,12 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     self.textViewPlaceHolder.hidden = YES;
-    CYLog(@"%s",__func__);
+
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
-    CYLog(@"%s",__func__);
+
     if (![textView.text length]) {
         self.textViewPlaceHolder.hidden = NO;
     }

@@ -22,6 +22,7 @@
 		6ACDB0CE1CBF99220057F2F2 /* CYRememberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACDB0CC1CBF99220057F2F2 /* CYRememberViewController.xib */; };
 		6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */; };
 		6ACDB0D61CBFA1E20057F2F2 /* CYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D51CBFA1E20057F2F2 /* CYData.m */; };
+		6AD7ED511CC09DFE00723A3E /* CYStoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7ED501CC09DFE00723A3E /* CYStoreView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDataTool.m; sourceTree = "<group>"; };
 		6ACDB0D41CBFA1E20057F2F2 /* CYData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYData.h; sourceTree = "<group>"; };
 		6ACDB0D51CBFA1E20057F2F2 /* CYData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYData.m; sourceTree = "<group>"; };
+		6AD7ED4F1CC09DFE00723A3E /* CYStoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYStoreView.h; sourceTree = "<group>"; };
+		6AD7ED501CC09DFE00723A3E /* CYStoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYStoreView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 				6ACDB0B11CBF92080057F2F2 /* CYMainCell.h */,
 				6ACDB0B21CBF92080057F2F2 /* CYMainCell.m */,
 				6ACDB0B31CBF92080057F2F2 /* CYMainCell.xib */,
+				6AD7ED4F1CC09DFE00723A3E /* CYStoreView.h */,
+				6AD7ED501CC09DFE00723A3E /* CYStoreView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */,
 				6ACDB0AF1CBF90770057F2F2 /* CYMainViewController.m in Sources */,
 				6ACDB0771CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld in Sources */,
+				6AD7ED511CC09DFE00723A3E /* CYStoreView.m in Sources */,
 				6ACDB0AA1CBF901D0057F2F2 /* AppDelegate.m in Sources */,
 				6ACDB0CD1CBF99220057F2F2 /* CYRememberViewController.m in Sources */,
 			);
@@ -625,6 +631,7 @@
 				6ACDB0981CBF8F700057F2F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6ACDB0991CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishTests" */ = {
 			isa = XCConfigurationList;
@@ -633,6 +640,7 @@
 				6ACDB09B1CBF8F700057F2F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6ACDB09C1CBF8F700057F2F2 /* Build configuration list for PBXNativeTarget "Controller Model CYLearnEnglishUITests" */ = {
 			isa = XCConfigurationList;
@@ -641,6 +649,7 @@
 				6ACDB09E1CBF8F700057F2F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -16,7 +16,9 @@
 
 #import "CYDataTool.h"
 
-#import "CYData.h"
+#import "CYStoreView.h"
+
+//#import "CYData.h"
 
 
 @interface CYMainViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -28,36 +30,18 @@
 // 数据数组
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
-/**
- *  数据模型数组
- */
-@property (nonatomic, strong) NSMutableArray *dataModelArr;
+//浮动视图
+@property (nonatomic, strong)CYStoreView *storeView;
 
 @end
 
 @implementation CYMainViewController
 
--(NSMutableArray *)dataModelArr
-{
-    if (_dataModelArr == nil) {
-        _dataModelArr = [NSMutableArray array];
-    }
-    return _dataModelArr;
-}
-
 -(NSMutableArray *)dataArr
 {
     if (_dataArr == nil) {
         _dataArr = [NSMutableArray array];
-        
-        _dataArr = [CYDataTool dataArr];
-        
-        for (NSDictionary *dict in _dataArr) {
-            
-            CYData *data = [CYData dataWithDict:dict];
-            
-            [self.dataModelArr addObject:data];
-        }
+    
         
     }
     return _dataArr;
@@ -89,16 +73,20 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self setUpNavigationBar];
     
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    if ([CYDataTool dataArr]) {
+        
+        [self.dataArr removeAllObjects];
+        
+        self.dataArr = [CYDataTool dataArr];
+        [self.tableView reloadData];
+        
+    }
     
-    CYLog(@"data----->%@",self.dataArr);
 }
 
 #pragma mark - 设置导航条
@@ -116,14 +104,16 @@
 }
 
 #pragma mark - tableView delegate datasource
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
-}
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 26;
+    return self.dataArr.count;
+//    return 10;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.dataArr[section] count];
+//    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,21 +126,23 @@
         
     }
     
-    cell.letterName.text = @"asdasdasas";
-    cell.letterMean.text = @"aiowjfp;aiowjioejfp;aofijp;asijfp;aosidjfaops;ifjop;asdijfpaos;iasfiojaiosfjsiafsa";
     
-    CYData *data = self.dataModelArr[0];
+    cell.letterName.text = self.dataArr[indexPath.section][indexPath.row][@"word"];
     
-    CYLog(@"word----%@",data.word);
+    NSString *means = [NSString stringWithFormat:@"释义：%@",self.dataArr[indexPath.section][indexPath.row][@"describe"]];
+    cell.letterMean.text = means;
     
     return cell;
 }
 
 
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return self.letterArr[section];
+    CYStoreView *storeView = [[CYStoreView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
+    _storeView = storeView;
+    storeView.title = self.dataArr[section][0][@"where"];
+    //    return self.dataArr[section][0][@"where"];
+    return storeView;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -160,6 +152,24 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    CYLog(@"%s=========%lu====%@",__func__,section,view);
+}
+
+#pragma mark - tableview滚动的时候调用
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat scrollY = scrollView.contentOffset.y;
+//    CYLog(@"%f",scrollY);
+}
+
+#pragma mark - 添加浮动视图
+-(void)addStoreView
+{
+    
 }
 
 @end

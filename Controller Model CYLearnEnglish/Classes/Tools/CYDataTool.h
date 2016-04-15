@@ -14,4 +14,6 @@
 
 +(NSMutableArray *)dataArr;
 
++(NSMutableArray *)oldDataArr;
+
 @end
