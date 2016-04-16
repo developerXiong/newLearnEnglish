@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CYMainCellDelegate <NSObject>
+
+@optional
+
+-(void)setUpCell;
+
+@end
+
 @interface CYMainCell : UITableViewCell
 
 /**
@@ -19,5 +27,15 @@
  */
 @property (weak, nonatomic) IBOutlet UILabel *letterMean;
 
+/**
+ *  整体的视图
+ */
+@property (weak, nonatomic) IBOutlet UIView *totalView;
+
+@property (nonatomic, weak) id<CYMainCellDelegate>delegate;
+
+@property (weak, nonatomic) IBOutlet UIButton *delete;
+
+//+(void)originalCell;
 
 @end

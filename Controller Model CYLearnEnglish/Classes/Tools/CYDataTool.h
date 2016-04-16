@@ -16,4 +16,12 @@
 
 +(NSMutableArray *)oldDataArr;
 
+//获取大写字母数组
++(NSArray *)getBigLetter;
+
+//获取小写字母数组
++(NSArray *)getSmlLetter;
+
+
+
 @end

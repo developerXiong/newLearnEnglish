@@ -20,8 +20,11 @@
 
 //#import "CYData.h"
 
+/**
+ *  tableView添加头视图的时候 设置style为plain 头视图会停留在 顶部固定住
+ */
 
-@interface CYMainViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface CYMainViewController ()<UITableViewDataSource,UITableViewDelegate,CYMainCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -89,6 +92,22 @@
     
 }
 
+#pragma mark - cell delegate
+-(void)setUpCell
+{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setFrame:CGRectMake(0, 120, Width, 200)];
+        [btn setBackgroundColor:[UIColor redColor]];
+        [self.view addSubview:btn];
+        
+    });
+    
+}
+
 #pragma mark - 设置导航条
 -(void)setUpNavigationBar
 {
@@ -107,13 +126,11 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.dataArr.count;
-//    return 10;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.dataArr[section] count];
-//    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,23 +143,86 @@
         
     }
     
-    
     cell.letterName.text = self.dataArr[indexPath.section][indexPath.row][@"word"];
-    
     NSString *means = [NSString stringWithFormat:@"释义：%@",self.dataArr[indexPath.section][indexPath.row][@"describe"]];
     cell.letterMean.text = means;
     
+    cell.delegate = self;
+    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [CYMainCell originalCell];
+    
+    CYLog(@"click cell");
+}
+
+
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *btnArr = [NSMutableArray array];
+    
+    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:0 title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        CYLog(@"click delete%lu---%lu",indexPath.row,indexPath.section);
+        
+        /**
+         *  深拷贝：将原来的数组完全拷贝，，拷贝的东西已经不是原来的东西，不能通过拷贝的来修改
+            原来的。。。
+            浅拷贝：只拷贝了原来数组的地址，修改的还是原来的数组
+         */
+        NSMutableArray *arr = self.dataArr[indexPath.section];
+        
+//        if (arr.count==1) {
+//            [self.dataArr removeObject:arr];
+//        }else{
+            [arr removeObjectAtIndex:indexPath.row];
+//        }
+
+//        CYLog(@"%@",self.dataArr);
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:0];
+
+        
+    }];
+    
+    
+    [btnArr addObject:action1];
+    
+    return btnArr;
+    
+}
+
+//对编辑的状态下提交的事件响应
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [dataArray removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        CYLog(@"click delete");
+    }
 }
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSArray *arr = self.dataArr[section];
+    
     CYStoreView *storeView = [[CYStoreView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
-    _storeView = storeView;
-    storeView.title = self.dataArr[section][0][@"where"];
-    //    return self.dataArr[section][0][@"where"];
-    return storeView;
+    
+    CYLog(@"%lu====",(unsigned long)[arr count]);
+    if (arr!=nil) {
+        
+        _storeView = storeView;
+        storeView.title = arr[0][@"where"];
+        return storeView;
+        
+    }
+    
+    return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -152,24 +232,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    CYLog(@"%s=========%lu====%@",__func__,section,view);
-}
-
-#pragma mark - tableview滚动的时候调用
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat scrollY = scrollView.contentOffset.y;
-//    CYLog(@"%f",scrollY);
-}
-
-#pragma mark - 添加浮动视图
--(void)addStoreView
-{
-    
 }
 
 @end

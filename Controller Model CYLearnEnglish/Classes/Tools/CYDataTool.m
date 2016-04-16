@@ -109,5 +109,28 @@
     return arr;
 }
 
++(NSArray *)getBigLetter
+{
+    NSMutableArray *bigArr = [NSMutableArray array];
+    for (int i = 'A'; i <= 'Z'; i++) {
+        
+        [bigArr addObject:[NSString stringWithFormat:@"%c",i]];
+        
+    }
+    
+    return bigArr;
+}
+
++(NSArray *)getSmlLetter
+{
+    NSMutableArray *smlArr = [NSMutableArray array];
+    for (int i = 'a'; i <= 'z'; i++) {
+        
+        [smlArr addObject:[NSString stringWithFormat:@"%c",i]];
+        
+    }
+    return smlArr;
+}
+
 
 @end

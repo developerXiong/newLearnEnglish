@@ -8,9 +8,9 @@
 
 #import "CYRememberViewController.h"
 #import "Head.pch"
+#import "CYDataTool.h"
 
-
-@interface CYRememberViewController ()<UITextViewDelegate>
+@interface CYRememberViewController ()<UITextViewDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *wordName;
 @property (weak, nonatomic) IBOutlet UILabel *textViewPlaceHolder;
@@ -45,6 +45,46 @@
     
     [self setUpTextView];
     [self setUpNavigationBar];
+    
+    self.wordName.delegate = self;
+}
+
+#pragma mark - textField设置
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+//    CYLog(@"%@----%lu",string,(unsigned long)range.location);
+    
+    //如果输入的不是英文字母
+    if (![self isEnglishLetter:string] && range.location==0) {
+        
+//        [CYOtherTools addAlertViewInVC:self message:@"请输入英文字母!"];
+        [CYOtherTools addMBProgressWithView:self.view style:1];
+        [CYOtherTools showMBWithTitle:@"请输入英文字母!"];
+        [CYOtherTools hiddenMBDurtion:0.5];
+        
+        return NO;
+        
+    }
+    
+    return YES;
+}
+
+//判断是否是英文字母
+-(BOOL)isEnglishLetter:(NSString *)str
+{
+    NSArray *bigArr = [CYDataTool getBigLetter];
+    NSArray *smlArr = [CYDataTool getSmlLetter];
+    
+    for (int i = 0; i < 26; i++) {
+        
+        if ([str isEqualToString:bigArr[i]]||[str isEqualToString:smlArr[i]]) {
+            return YES;
+        }
+        
+    }
+    
+    return NO;
 }
 
 #pragma mark - 设置导航条

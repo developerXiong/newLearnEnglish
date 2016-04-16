@@ -23,6 +23,9 @@
 		6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */; };
 		6ACDB0D61CBFA1E20057F2F2 /* CYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB0D51CBFA1E20057F2F2 /* CYData.m */; };
 		6AD7ED511CC09DFE00723A3E /* CYStoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7ED501CC09DFE00723A3E /* CYStoreView.m */; };
+		6AD7ED541CC0BEBA00723A3E /* CYOtherTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7ED531CC0BEBA00723A3E /* CYOtherTools.m */; };
+		6AD7ED591CC0C0A800723A3E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7ED581CC0C0A800723A3E /* MBProgressHUD.m */; };
+		6AD7ED5C1CC0D01200723A3E /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7ED5B1CC0D01200723A3E /* UIView+frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,13 @@
 		6ACDB0D51CBFA1E20057F2F2 /* CYData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYData.m; sourceTree = "<group>"; };
 		6AD7ED4F1CC09DFE00723A3E /* CYStoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYStoreView.h; sourceTree = "<group>"; };
 		6AD7ED501CC09DFE00723A3E /* CYStoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYStoreView.m; sourceTree = "<group>"; };
+		6AD7ED521CC0BEBA00723A3E /* CYOtherTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYOtherTools.h; sourceTree = "<group>"; };
+		6AD7ED531CC0BEBA00723A3E /* CYOtherTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYOtherTools.m; sourceTree = "<group>"; };
+		6AD7ED561CC0C0A800723A3E /* GetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetData.h; sourceTree = "<group>"; };
+		6AD7ED571CC0C0A800723A3E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		6AD7ED581CC0C0A800723A3E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6AD7ED5A1CC0D01200723A3E /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		6AD7ED5B1CC0D01200723A3E /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +185,7 @@
 		6ACDB0A01CBF901D0057F2F2 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				6AD7ED551CC0C0A800723A3E /* MBProgressHUD */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -268,8 +279,22 @@
 			children = (
 				6ACDB0D11CBFA0E50057F2F2 /* CYDataTool.h */,
 				6ACDB0D21CBFA0E50057F2F2 /* CYDataTool.m */,
+				6AD7ED521CC0BEBA00723A3E /* CYOtherTools.h */,
+				6AD7ED531CC0BEBA00723A3E /* CYOtherTools.m */,
+				6AD7ED5A1CC0D01200723A3E /* UIView+frame.h */,
+				6AD7ED5B1CC0D01200723A3E /* UIView+frame.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		6AD7ED551CC0C0A800723A3E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6AD7ED561CC0C0A800723A3E /* GetData.h */,
+				6AD7ED571CC0C0A800723A3E /* MBProgressHUD.h */,
+				6AD7ED581CC0C0A800723A3E /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,10 +430,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD7ED5C1CC0D01200723A3E /* UIView+frame.m in Sources */,
 				6ACDB0B41CBF92080057F2F2 /* CYMainCell.m in Sources */,
 				6ACDB0D61CBFA1E20057F2F2 /* CYData.m in Sources */,
 				6ACDB06B1CBF8F700057F2F2 /* main.m in Sources */,
 				6ACDB0D31CBFA0E50057F2F2 /* CYDataTool.m in Sources */,
+				6AD7ED591CC0C0A800723A3E /* MBProgressHUD.m in Sources */,
+				6AD7ED541CC0BEBA00723A3E /* CYOtherTools.m in Sources */,
 				6ACDB0AF1CBF90770057F2F2 /* CYMainViewController.m in Sources */,
 				6ACDB0771CBF8F700057F2F2 /* Controller_Model_CYLearnEnglish.xcdatamodeld in Sources */,
 				6AD7ED511CC09DFE00723A3E /* CYStoreView.m in Sources */,
