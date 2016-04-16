@@ -26,7 +26,8 @@
     if (_dataArr == nil) {
         _dataArr = [NSMutableArray array];
 
-        NSMutableArray *oldArr = [CYDataTool oldDataArr];
+        //原始的数组数据
+        NSMutableArray *oldArr = [CYDataTool dataArr];
 
         if (oldArr.count) {
             for (NSDictionary *dict in oldArr) {
@@ -50,42 +51,49 @@
 }
 
 #pragma mark - textField设置
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+
+-(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     
-//    CYLog(@"%@----%lu",string,(unsigned long)range.location);
-    
-    //如果输入的不是英文字母
-    if (![self isEnglishLetter:string] && range.location==0) {
-        
-//        [CYOtherTools addAlertViewInVC:self message:@"请输入英文字母!"];
-        [CYOtherTools addMBProgressWithView:self.view style:1];
-        [CYOtherTools showMBWithTitle:@"请输入英文字母!"];
-        [CYOtherTools hiddenMBDurtion:0.5];
-        
-        return NO;
-        
-    }
-    
-    return YES;
+    [self.wordName becomeFirstResponder];
 }
+//-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    
+////    CYLog(@"%@----%lu",string,(unsigned long)range.location);
+//    
+//    //如果输入的不是英文字母
+//    if (![self isEnglishLetter:string] && range.location==0) {
+//        
+////        [CYOtherTools addAlertViewInVC:self message:@"请输入英文字母!"];
+//        [CYOtherTools addMBProgressWithView:self.view style:1];
+//        [CYOtherTools showMBWithTitle:@"请输入英文字母!"];
+//        [CYOtherTools hiddenMBDurtion:0.5];
+//        
+//        return NO;
+//        
+//    }
+//    
+//    return YES;
+//}
 
 //判断是否是英文字母
--(BOOL)isEnglishLetter:(NSString *)str
-{
-    NSArray *bigArr = [CYDataTool getBigLetter];
-    NSArray *smlArr = [CYDataTool getSmlLetter];
-    
-    for (int i = 0; i < 26; i++) {
-        
-        if ([str isEqualToString:bigArr[i]]||[str isEqualToString:smlArr[i]]) {
-            return YES;
-        }
-        
-    }
-    
-    return NO;
-}
+//-(BOOL)isEnglishLetter:(NSString *)str
+//{
+//    NSArray *bigArr = [CYDataTool getBigLetter];
+//    NSArray *smlArr = [CYDataTool getSmlLetter];
+//    
+//    for (int i = 0; i < 26; i++) {
+//        
+//        if ([str isEqualToString:bigArr[i]]||[str isEqualToString:smlArr[i]]) {
+//            return YES;
+//        }
+//        
+//    }
+//    
+//    return NO;
+//}
 
 #pragma mark - 设置导航条
 -(void)setUpNavigationBar
@@ -97,16 +105,20 @@
 {
     CYLog(@"点击完成");
     
-    //将输入的数据存为字典
-    NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
-    if ([self.wordName.text length]) dataDict[@"word"] = self.wordName.text;
-    if ([self.descriptions.text length]) dataDict[@"describe"] = self.descriptions.text;
-    
-    //将输入的数据保存
-    [self.dataArr addObject:dataDict];
-    
-    //保存数据到plist
-    [CYDataTool saveDataWithArr:self.dataArr];
+    if ([self.wordName.text length]||[self.descriptions.text length]) {
+        //将输入的数据存为字典
+        NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
+        if ([self.wordName.text length]) dataDict[@"word"] = self.wordName.text;
+        if ([self.descriptions.text length]) dataDict[@"describe"] = self.descriptions.text;
+        
+        //将输入的数据保存
+        [self.dataArr addObject:dataDict];
+        
+        //保存数据到plist
+        [CYDataTool saveDataWithArr:self.dataArr];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"changeView" object:nil];
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }

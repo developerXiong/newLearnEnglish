@@ -24,11 +24,18 @@
     //取出plist数据
     NSMutableArray *arr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
     
+    
+    return arr;
+}
+
+//处理原始的数据
++(NSMutableArray *)dealwithArr:(NSMutableArray *)arr
+{
     //初始化section数组
     NSMutableArray *secArr = [NSMutableArray array];
     
     //初始化row数组
-//    NSMutableArray *rowArr = [NSMutableArray array];
+    //    NSMutableArray *rowArr = [NSMutableArray array];
     
     for (int i = 0; i < 26; i ++) {
         
@@ -55,7 +62,7 @@
     }
     
     
-        
+    
     
     
     //遍历数据数组 取出字典
@@ -91,7 +98,7 @@
         NSArray *arr = (NSArray *)secArr[i];
         
         if (![arr isEqualToArray:@[]]) {
-
+            
             [lastArr addObject:arr];
         }
         
@@ -102,14 +109,7 @@
     return lastArr;
 }
 
-+(NSMutableArray *)oldDataArr
-{
-    //取出plist数据
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
-    return arr;
-}
-
-+(NSArray *)getBigLetter
++(NSMutableArray *)getBigLetter
 {
     NSMutableArray *bigArr = [NSMutableArray array];
     for (int i = 'A'; i <= 'Z'; i++) {
@@ -121,7 +121,7 @@
     return bigArr;
 }
 
-+(NSArray *)getSmlLetter
++(NSMutableArray *)getSmlLetter
 {
     NSMutableArray *smlArr = [NSMutableArray array];
     for (int i = 'a'; i <= 'z'; i++) {

@@ -25,6 +25,7 @@
         [self setUpChildViews];
         
         self.backgroundColor = RGBColor(235, 234, 241, 1);
+//        self.backgroundColor = [UIColor orangeColor];
         
     }
     return self;

@@ -18,6 +18,8 @@
 
 #import "CYStoreView.h"
 
+#import "CYNoDataView.h"
+
 //#import "CYData.h"
 
 /**
@@ -34,7 +36,14 @@
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
 //浮动视图
-@property (nonatomic, strong)CYStoreView *storeView;
+@property (nonatomic, strong) CYStoreView *storeView;
+
+@property (nonatomic, strong) CYNoDataView *backview;
+
+/**
+ *  view的背景图片
+ */
+@property (nonatomic, strong) UIImageView *backgroundView;
 
 @end
 
@@ -43,9 +52,9 @@
 -(NSMutableArray *)dataArr
 {
     if (_dataArr == nil) {
+        
         _dataArr = [NSMutableArray array];
     
-        
     }
     return _dataArr;
 }
@@ -56,14 +65,8 @@
     if (_letterArr == nil) {
         
         _letterArr = [NSMutableArray array];
-        
-        for (char i = 'a'; i <= 'z'; i++) {
-            
-            NSString *str = [NSString stringWithFormat:@"%c",i];
-            
-            [_letterArr addObject:str];
-            
-        }
+
+        _letterArr = [CYDataTool getSmlLetter];
       
     }
     return _letterArr;
@@ -71,48 +74,96 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self setUpNavigationBar];
+    
+    if (!self.dataArr.count) {
+        [self changeView];
+    }
+    
+        self.tableView.layer.zPosition = 1;
+    
+    [self setUpBackgroundImage];
+
+}
+
+#pragma mark - view的背景
+-(void)setUpBackgroundImage
+{
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    backgroundView.image = [UIImage imageNamed:@"backgroundImage"];
+//    [self.view addSubview:backgroundView];
+    self.tableView.backgroundView = backgroundView;
+    
+}
+
+// 改变tableview背景
+-(void)changeView
+{
+    //随机数
+    int i = arc4random() % 10; //随机生成[0，10）包括0不包括10
+    
+    NSString *imageName1 = [NSString stringWithFormat:@"image%d",i];
+    
+    self.tableView.hidden = YES;
+    CYNoDataView *view = [CYNoDataView shareNodataView];
+    view.imageName = imageName1;
+    [view show];
+    _backview = view;
+    
+    [self.view addSubview:view];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if ([CYDataTool dataArr]) {
-        
-        [self.dataArr removeAllObjects];
-        
-        self.dataArr = [CYDataTool dataArr];
-        [self.tableView reloadData];
-        
-    }
+    
+    [self getAndReloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView) name:@"changeView" object:nil];
     
 }
 
-#pragma mark - cell delegate
--(void)setUpCell
+#pragma mark - 获取并刷新数据
+-(void)getAndReloadData
 {
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(0, 120, Width, 200)];
-        [btn setBackgroundColor:[UIColor redColor]];
-        [self.view addSubview:btn];
-        
-    });
+    if ([CYDataTool dataArr].count) {
     
+        [self.dataArr removeAllObjects];
+        [self.backview hidden];
+        self.tableView.hidden = NO;
+        self.dataArr = [CYDataTool dataArr];
+        self.dataArr = [CYDataTool dealwithArr:self.dataArr];
+        
+        [self.tableView reloadData];
+        
+    }else{
+        
+        [self changeView];
+        
+    }
 }
 
 #pragma mark - 设置导航条
 -(void)setUpNavigationBar
 {
-    self.title = @"Learn English";
+//    self.title = @"Learn English";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"记单词" style:0 target:self action:@selector(clickRemember)];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"backgroundImage"] forBarMetrics:0];
+    
+    
+    self.navigationItem.title = @"Learn English";
+    
+//    设置导航栏下方不显示内容，此时导航栏无透明度
+//    self.extendedLayoutIncludesOpaqueBars = YES;
+    
+    self.navigationController.navigationBar.translucent = YES;
+    
 }
 
 -(void)clickRemember
@@ -135,26 +186,24 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"learnCell";
-    CYMainCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[NSBundle mainBundle]loadNibNamed:@"CYMainCell" owner:nil options:nil][0];
-        cell.selectionStyle = 0;
+
+    CYMainCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
-    }
+    cell = [[NSBundle mainBundle]loadNibNamed:@"CYMainCell" owner:nil options:nil][0];
+    cell.selectionStyle = 0;
     
     cell.letterName.text = self.dataArr[indexPath.section][indexPath.row][@"word"];
     NSString *means = [NSString stringWithFormat:@"释义：%@",self.dataArr[indexPath.section][indexPath.row][@"describe"]];
     cell.letterMean.text = means;
     
     cell.delegate = self;
+
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [CYMainCell originalCell];
     
     CYLog(@"click cell");
 }
@@ -164,9 +213,9 @@
 {
     NSMutableArray *btnArr = [NSMutableArray array];
     
+    CYLog(@"左滑4");
+    
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:0 title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        CYLog(@"click delete%lu---%lu",indexPath.row,indexPath.section);
         
         /**
          *  深拷贝：将原来的数组完全拷贝，，拷贝的东西已经不是原来的东西，不能通过拷贝的来修改
@@ -175,50 +224,66 @@
          */
         NSMutableArray *arr = self.dataArr[indexPath.section];
         
-//        if (arr.count==1) {
-//            [self.dataArr removeObject:arr];
-//        }else{
+        if (arr.count==1) {
+            [self.dataArr removeObject:arr];
+            // 删除指定组
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+            if (!self.dataArr.count) {
+            
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"changeView" object:nil];
+                
+            }
+            
+        }else{
             [arr removeObjectAtIndex:indexPath.row];
-//        }
-
-//        CYLog(@"%@",self.dataArr);
+            // 删除指定的单元格
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:0];
+        }
         
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:0];
-
+        // 将处理过的数组还原成原始数组
+        NSMutableArray *tempArr = [NSMutableArray array];
+        
+        for (int i = 0; i < self.dataArr.count; i++) {
+            
+            for (NSDictionary *dict in self.dataArr[i]) {
+                
+                [tempArr addObject:dict];
+                
+            }
+            
+        }
+        // 将数组保存到plist
+        [CYDataTool saveDataWithArr:tempArr];
+        if (!self.dataArr.count) {
+            
+            [tableView reloadData];
+        }
+        
         
     }];
-    
-    
+ 
     [btnArr addObject:action1];
+    
     
     return btnArr;
     
 }
 
-//对编辑的状态下提交的事件响应
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [dataArray removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        CYLog(@"click delete");
-    }
-}
-
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *arr = self.dataArr[section];
-    
-    CYStoreView *storeView = [[CYStoreView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
-    
-    CYLog(@"%lu====",(unsigned long)[arr count]);
-    if (arr!=nil) {
+    if (self.dataArr.count) {
         
-        _storeView = storeView;
-        storeView.title = arr[0][@"where"];
-        return storeView;
+        NSArray *arr = self.dataArr[section];
+        
+        CYStoreView *storeView = [[CYStoreView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
+        
+        if (arr!=nil) {
+            
+            _storeView = storeView;
+            storeView.title = arr[0][@"where"];
+            return storeView;
+            
+        }
         
     }
     
@@ -228,10 +293,28 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.000001;
+        
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30;
+    
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    CGFloat offY = scrollView.contentOffset.y;
+    
+    CYLog(@"%f",offY);
+    
+    if (offY>-64) {
+        
+//        [self.navigationController.navigationBar setBackgroundColor:[UIColor orangeColor]];
+        
+    }
+
+    
 }
 
 @end
