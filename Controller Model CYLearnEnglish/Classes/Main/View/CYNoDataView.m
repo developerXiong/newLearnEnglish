@@ -81,7 +81,7 @@
     [super layoutSubviews];
     
     _imageV.frame = self.bounds;
-    _topLabel.frame = CGRectMake(20, 10, Width-20, 25);
+    _topLabel.frame = CGRectMake(20, 25, Width-20, 25);
     _midLabel.frame = CGRectMake(20, CGRectGetMaxY(_topLabel.frame)+25, Width-20, 25);
 }
 

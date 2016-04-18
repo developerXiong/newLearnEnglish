@@ -15,16 +15,25 @@ static MBProgressHUD *_mbV;
 
 @implementation CYOtherTools
 
-+(void)addAlertViewInVC:(UIViewController *)viewController message:(NSString *)message
++(void)addAlertViewInVC:(UIViewController *)viewController message:(NSString *)message doWhat:(void (^)())doWhat
 {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:1];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:0 handler:^(UIAlertAction * _Nonnull action) {
         
+        if (doWhat) {
+            doWhat();
+        }
+        
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
     }];
     
     
     [alertVc addAction:action1];
+    [alertVc addAction:action2];
     
     [viewController presentViewController:alertVc animated:YES completion:^{
         

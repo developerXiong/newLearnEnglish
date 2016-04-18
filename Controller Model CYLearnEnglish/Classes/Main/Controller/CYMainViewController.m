@@ -20,8 +20,6 @@
 
 #import "CYNoDataView.h"
 
-//#import "CYData.h"
-
 /**
  *  tableView添加头视图的时候 设置style为plain 头视图会停留在 顶部固定住
  */
@@ -75,15 +73,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.estimatedRowHeight = 100;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self setUpNavigationBar];
     
     if (!self.dataArr.count) {
         [self changeView];
     }
     
-        self.tableView.layer.zPosition = 1;
+//        self.tableView.layer.zPosition = 1;
     
     [self setUpBackgroundImage];
 
@@ -127,6 +123,26 @@
     
 }
 
+#pragma mark - 添加索引
+-(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+//    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        return nil;
+//    }
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    for (NSArray *dataArr in self.dataArr) {
+        
+        NSString *str = dataArr[0][@"where"];
+        
+        [arr addObject:str];
+        
+    }
+    
+    return arr;
+}
+
 #pragma mark - 获取并刷新数据
 -(void)getAndReloadData
 {
@@ -135,6 +151,17 @@
     
         [self.dataArr removeAllObjects];
         [self.backview hidden];
+        
+        self.tableView.estimatedRowHeight = 100;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        // 设置索引的颜色
+        self.tableView.sectionIndexColor = [UIColor blueColor];
+        
+        // 索引背景色
+        self.tableView.sectionIndexBackgroundColor = RGBColor(254, 233, 232, 1);
+        // 索引点击的颜色
+//        self.tableView.sectionIndexTrackingBackgroundColor = [UIColor greenColor];
+        
         self.tableView.hidden = NO;
         self.dataArr = [CYDataTool dataArr];
         self.dataArr = [CYDataTool dealwithArr:self.dataArr];
@@ -152,15 +179,17 @@
 -(void)setUpNavigationBar
 {
 //    self.title = @"Learn English";
+    // 左边的导航栏item
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"记单词" style:0 target:self action:@selector(clickRemember)];
+    // 右边的导航栏item
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:0 target:self action:@selector(clear)];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"backgroundImage"] forBarMetrics:0];
-    
     
     self.navigationItem.title = @"Learn English";
     
 //    设置导航栏下方不显示内容，此时导航栏无透明度
-//    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.extendedLayoutIncludesOpaqueBars = YES;
     
     self.navigationController.navigationBar.translucent = YES;
     
@@ -171,6 +200,29 @@
     CYRememberViewController *remVC = [[CYRememberViewController alloc] init];
     
     [self.navigationController pushViewController:remVC animated:YES];
+}
+
+//点击左边的item
+-(void)clear
+{
+    [CYOtherTools addAlertViewInVC:self message:@"确定清空所有?" doWhat:^{
+       
+        if (self.dataArr.count) {
+            
+            [self.dataArr removeAllObjects];
+            [self.tableView reloadData];
+            [CYDataTool saveDataWithArr:self.dataArr];
+            [self getAndReloadData];
+            
+        }else{
+            
+            [CYOtherTools addMBProgressWithView:self.view style:1];
+            [CYOtherTools showMBWithTitle:@"已经啥都没有了，留点活路吧!"];
+            [CYOtherTools hiddenMBDurtion:1];
+            
+        }
+        
+    }];
 }
 
 #pragma mark - tableView delegate datasource
@@ -213,8 +265,7 @@
 {
     NSMutableArray *btnArr = [NSMutableArray array];
     
-    CYLog(@"左滑4");
-    
+    // 删除按钮
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:0 title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
         /**
@@ -230,6 +281,7 @@
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
             if (!self.dataArr.count) {
             
+                // 通知主界面刷新
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"changeView" object:nil];
                 
             }
@@ -261,12 +313,22 @@
         
         
     }];
- 
+    
+    // 修改
+    UITableViewRowAction *addAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"修改" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+//        CYLog(@"%@",action);
+        
+        
+        
+    }];
+    
+
     [btnArr addObject:action1];
-    
-    
+    [btnArr addObject:addAction];
+
     return btnArr;
-    
+
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -301,12 +363,13 @@
     
 }
 
+#pragma mark - tableView 滚动
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
     CGFloat offY = scrollView.contentOffset.y;
     
-    CYLog(@"%f",offY);
+//    CYLog(@"%f",offY);
     
     if (offY>-64) {
         

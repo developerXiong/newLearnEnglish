@@ -111,6 +111,10 @@
         if ([self.wordName.text length]) dataDict[@"word"] = self.wordName.text;
         if ([self.descriptions.text length]) dataDict[@"describe"] = self.descriptions.text;
         
+        if ([self.wordName.text length] && ![self.descriptions.text length]) {
+            dataDict[@"describe"] = @"请输入释义";
+        }
+        
         //将输入的数据保存
         [self.dataArr addObject:dataDict];
         

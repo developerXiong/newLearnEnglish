@@ -12,7 +12,7 @@
 
 @interface CYOtherTools : NSObject
 
-+(void)addAlertViewInVC:(UIViewController *)viewController message:(NSString *)message;
++(void)addAlertViewInVC:(UIViewController *)viewController message:(NSString *)message doWhat:(void(^)())doWhat;
 
 /**
  *  添加MBProgress
