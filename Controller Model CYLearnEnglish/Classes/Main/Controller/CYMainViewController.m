@@ -126,9 +126,6 @@
 #pragma mark - 添加索引
 -(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-//    if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        return nil;
-//    }
     
     NSMutableArray *arr = [NSMutableArray array];
     
@@ -317,9 +314,18 @@
     // 修改
     UITableViewRowAction *addAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"修改" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
-//        CYLog(@"%@",action);
+        // 取出字典数据
+        NSDictionary *dict = self.dataArr[indexPath.section][indexPath.row];
         
+        CYRememberViewController *remember = [[CYRememberViewController alloc] init];
+        // 判断位置的字符串
+        remember.where = dict[@"where"];
+        // 单词名
+        remember.word = dict[@"word"];
+        // 描述
+        remember.describe = dict[@"describe"];
         
+        [self.navigationController pushViewController:remember animated:YES];
         
     }];
     
@@ -370,13 +376,6 @@
     CGFloat offY = scrollView.contentOffset.y;
     
 //    CYLog(@"%f",offY);
-    
-    if (offY>-64) {
-        
-//        [self.navigationController.navigationBar setBackgroundColor:[UIColor orangeColor]];
-        
-    }
-
     
 }
 

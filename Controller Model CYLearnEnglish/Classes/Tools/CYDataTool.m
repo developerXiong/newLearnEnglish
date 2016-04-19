@@ -28,7 +28,7 @@
     return arr;
 }
 
-//处理原始的数据
+//处理原始的数据 变为可用的 数组
 +(NSMutableArray *)dealwithArr:(NSMutableArray *)arr
 {
     //初始化section数组
@@ -60,10 +60,6 @@
         [bigArr addObject:[NSString stringWithFormat:@"%c",i]];
         
     }
-    
-    
-    
-    
     
     //遍历数据数组 取出字典
     for (NSDictionary *dict in arr) {

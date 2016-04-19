@@ -47,6 +47,12 @@
     [self setUpTextView];
     [self setUpNavigationBar];
     
+    // 如果是修改
+    if ([self.where length]) {
+        self.wordName.text = self.word;
+        self.descriptions.text = self.describe;
+    }
+    
     self.wordName.delegate = self;
 }
 
@@ -58,42 +64,6 @@
     
     [self.wordName becomeFirstResponder];
 }
-//-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    
-////    CYLog(@"%@----%lu",string,(unsigned long)range.location);
-//    
-//    //如果输入的不是英文字母
-//    if (![self isEnglishLetter:string] && range.location==0) {
-//        
-////        [CYOtherTools addAlertViewInVC:self message:@"请输入英文字母!"];
-//        [CYOtherTools addMBProgressWithView:self.view style:1];
-//        [CYOtherTools showMBWithTitle:@"请输入英文字母!"];
-//        [CYOtherTools hiddenMBDurtion:0.5];
-//        
-//        return NO;
-//        
-//    }
-//    
-//    return YES;
-//}
-
-//判断是否是英文字母
-//-(BOOL)isEnglishLetter:(NSString *)str
-//{
-//    NSArray *bigArr = [CYDataTool getBigLetter];
-//    NSArray *smlArr = [CYDataTool getSmlLetter];
-//    
-//    for (int i = 0; i < 26; i++) {
-//        
-//        if ([str isEqualToString:bigArr[i]]||[str isEqualToString:smlArr[i]]) {
-//            return YES;
-//        }
-//        
-//    }
-//    
-//    return NO;
-//}
 
 #pragma mark - 设置导航条
 -(void)setUpNavigationBar
@@ -103,7 +73,22 @@
 
 -(void)clickSave
 {
-    CYLog(@"点击完成");
+    // 如果是修改
+    if ([self.where length]) {
+        
+        for (int i = 0; i < self.dataArr.count; i++) {
+            
+            NSDictionary *dict = self.dataArr[i];
+            
+            if ([dict[@"describe"] isEqualToString:self.describe]&&[dict[@"word"] isEqualToString:self.word]) {
+                
+                [self.dataArr removeObject:dict];
+                
+            }
+            
+        }
+        
+    }
     
     if ([self.wordName.text length]||[self.descriptions.text length]) {
         //将输入的数据存为字典
@@ -130,6 +115,9 @@
 #pragma mark - 设置textView
 -(void)setUpTextView
 {
+    if ([self.describe length]) {
+        self.textViewPlaceHolder.hidden = YES;
+    }
     self.descriptions.layer.cornerRadius = 5;
     self.descriptions.layer.borderWidth = 0.5;
     self.descriptions.layer.borderColor = [[[UIColor blackColor] colorWithAlphaComponent:0.5] CGColor];
