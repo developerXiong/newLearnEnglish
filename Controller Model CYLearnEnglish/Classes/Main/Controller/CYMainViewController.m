@@ -52,7 +52,7 @@
     if (_dataArr == nil) {
         
         _dataArr = [NSMutableArray array];
-    
+        
     }
     return _dataArr;
 }
@@ -129,6 +129,8 @@
     
     NSMutableArray *arr = [NSMutableArray array];
     
+    CYLog(@"%@",self.dataArr);
+    
     for (NSArray *dataArr in self.dataArr) {
         
         NSString *str = dataArr[0][@"where"];
@@ -156,8 +158,6 @@
         
         // 索引背景色
         self.tableView.sectionIndexBackgroundColor = RGBColor(254, 233, 232, 1);
-        // 索引点击的颜色
-//        self.tableView.sectionIndexTrackingBackgroundColor = [UIColor greenColor];
         
         self.tableView.hidden = NO;
         self.dataArr = [CYDataTool dataArr];
@@ -373,7 +373,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
-    CGFloat offY = scrollView.contentOffset.y;
+//    CGFloat offY = scrollView.contentOffset.y;
     
 //    CYLog(@"%f",offY);
     

@@ -63,9 +63,6 @@ static MBProgressHUD *_mbV;
     /**
      *  自定义view
      */
-    //    _mbV.customView
-    
-//    _mbV.color = [UIColor whiteColor];
     [view addSubview:_mbV];
     
     _mbV.activityIndicatorColor = [UIColor blackColor];
@@ -75,7 +72,6 @@ static MBProgressHUD *_mbV;
 +(void)showMBWithTitle:(NSString *)title
 {
     _mbV.labelText = title;
-//    _mbV.labelColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     [_mbV show:YES];
 }
 
