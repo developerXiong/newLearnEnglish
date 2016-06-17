@@ -192,6 +192,7 @@
     
 }
 
+// 点击记单词
 -(void)clickRemember
 {
     CYRememberViewController *remVC = [[CYRememberViewController alloc] init];
